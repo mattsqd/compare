@@ -1,6 +1,40 @@
 {
+  "name": "dgov",
+  "config": {
+    "hugo_url": "http://localhost:1313",
+    "drupal_url": "http://digitalgov.lndo.site"
+  },
   "dependencies": {
     "cypress": "^13.15.2",
-    "cypress-image-diff-js": "^2.3.0"
+    "cypress-image-diff-html-report": "^2.2.0",
+    "cypress-image-diff-js": "^2.3.0",
+    "cypress-wait-until": "^3.0.2",
+    "npm-run-all": "^4.1.5"
+  },
+  "scripts": {
+    "compare-fresh": "npm-run-all -s -c compare-baseline-against-hugo update-baseline-images compare-baseline-against-drupal http",
+    "compare": "npm-run-all -s -c compare-baseline-against-drupal http",
+    "compare-baseline-against-hugo": "DISPLAY='' NODE_OPTIONS='' cypress run --config baseUrl=$npm_package_config_hugo_url --spec=$spec",
+    "update-baseline-images": "npx cypress-image-diff -u",
+    "compare-baseline-against-drupal": "DISPLAY='' NODE_OPTIONS='' cypress run --config baseUrl=$npm_package_config_drupal_url --spec=$spec",
+    "http": "npx http-server . -o cypress-image-diff-html-report/cypress-image-diff-html-report.html",
+    "authors-fresh": "spec=cypress/e2e/*authors*.cy.js npm run compare-fresh",
+    "authors": "spec=cypress/e2e/*authors*.cy.js npm run compare",
+    "basic-pages-fresh": "spec=cypress/e2e/*basic_pages*.cy.js npm run compare-fresh",
+    "basic-pages": "spec=cypress/e2e/*basic_pages*.cy.js npm run compare",
+    "communities-fresh": "spec=cypress/e2e/*communities*.cy.js npm run compare-fresh",
+    "communities": "spec=cypress/e2e/*communities*.cy.js npm run compare",
+    "events-fresh": "spec=cypress/e2e/*events*.cy.js npm run compare-fresh",
+    "events": "spec=cypress/e2e/*events*.cy.js npm run compare",
+    "guides-fresh": "spec=cypress/e2e/*guides*.cy.js npm run compare-fresh",
+    "guides": "spec=cypress/e2e/*guides*.cy.js npm run compare",
+    "landing-pages-fresh": "spec=cypress/e2e/*landing_pages*.cy.js npm run compare-fresh",
+    "landing-pages": "spec=cypress/e2e/*landing_pages*.cy.js npm run compare",
+    "news-fresh": "spec=cypress/e2e/*news*.cy.js npm run compare-fresh",
+    "news": "spec=cypress/e2e/*news*.cy.js npm run compare",
+    "resources-fresh": "spec=cypress/e2e/*resources*.cy.js npm run compare-fresh",
+    "resources": "spec=cypress/e2e/*resources*.cy.js npm run compare",
+    "topics-fresh": "spec=cypress/e2e/*topics*.cy.js npm run compare-fresh",
+    "topics": "spec=cypress/e2e/*topics*.cy.js npm run compare"
   }
 }
