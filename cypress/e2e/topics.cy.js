@@ -4,6 +4,7 @@ const urls = [
     '/topics/analytics',
     '/topics/accessibility',
     '/topics/cloud-and-infrastructure',
+    '/topics/crowdsourcing-and-citizen-science/',
     '/topics/privacy',
 ];
 const type = 'topic';

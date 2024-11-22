@@ -2,7 +2,9 @@
 const urls = [
     '/authors/dan-williams',
     '/authors/bridget-roddy',
-    '/authors/erika-brown'
+    '/authors/erika-brown',
+    '/authors/lorena-molinairizarry',
+    '/authors/drew-zachary'
 ];
 const type = 'author';
 const baseUrl = Cypress.config('baseUrl');

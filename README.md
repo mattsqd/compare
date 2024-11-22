@@ -55,3 +55,21 @@ npm run landing-pages
 ```
 There are commands like this for every content type, see package.json for the rest of them. They are the same as the
 above two commands except they only run for a single content type.
+
+However, I recommend getting all the screenshots from Hugo first with:
+
+```
+compare-baseline-against-hugo
+```
+
+You'll want to make sure there are no errors, that's just getting the baseline, you'll only get errors if the URL can't be found.
+
+Then, you can run the individual content type ones, fixing them as you go.
+
+```
+npm run authors-fresh
+npm run authors
+npm run landing-pages-fresh
+npm run landing-pages
+etc...
+```

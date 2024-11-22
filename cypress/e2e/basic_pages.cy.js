@@ -1,5 +1,6 @@
 // List of relative URLs to test
 const urls = [
+    '/about',
     '/about/contribute',
     '/about/contact',
 ];
